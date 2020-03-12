@@ -13,6 +13,9 @@ async function initWorkout() {
       ...tallyExercises(lastWorkout.exercises)
     };
 
+    if (new Date(lastWorkout.day).toLocaleDateString() === new Date().toLocaleDateString()) {
+      document.querySelector("#new-btn").classList.add("d-none");
+    }
     renderWorkoutSummary(workoutSummary);
   } else {
     renderNoWorkoutText()

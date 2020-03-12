@@ -13,7 +13,6 @@ const WorkoutSchema = new Schema({
 
 WorkoutSchema.virtual("totalDuration").get(function () {
   let total = 0;
-  console.log(total);
 
   this.exercises.forEach((exercise, i) => {
     console.log(i + 1 + ". exercise.duration in Workout.js: " + exercise.duration);
