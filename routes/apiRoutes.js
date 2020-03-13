@@ -13,11 +13,13 @@ router.get("/api/workouts", (req, res) => {
 });
 
 router.post("/api/workouts", ({ body }, res) => {
-    db.Workout.create(body)
+    console.log(new Date());
+    db.Workout.create({ day: new Date() })
         .then(dbWorkout => {
             res.json(dbWorkout);
         })
         .catch(err => {
+            console.log("/api/workouts error: " + err);
             res.status(400).json(err);
         });
 });
@@ -41,6 +43,17 @@ router.get("/api/workouts/range", (req, res) => {
         .then(dbWorkout => {
             console.log(dbWorkout);
             dbWorkout.reverse();
+            res.json(dbWorkout);
+        })
+        .catch(err => {
+            res.status(400).json(err);
+        });
+});
+
+router.delete("/api/deleteall", (req, res) => {
+    db.Workout.deleteMany({})
+        .then(dbWorkout => {
+            console.log(dbWorkout);
             res.json(dbWorkout);
         })
         .catch(err => {

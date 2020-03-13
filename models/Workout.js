@@ -5,8 +5,7 @@ const opts = { toObject: { virtuals: true }, toJSON: { virtuals: true } };
 const WorkoutSchema = new Schema({
   day: {
     type: Number,
-    unique: true,
-    default: new Date().setDate(new Date().getDate())
+    default: new Date()
   },
   exercises: Array
 }, opts);

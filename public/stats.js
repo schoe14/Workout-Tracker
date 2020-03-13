@@ -200,8 +200,9 @@ function formatDates(data) {
     day: "numeric"
   };
   let dates = [];
-  data.forEach(workout => {
-    dates.push(new Date(workout.day).toLocaleDateString(options));
+  data.forEach((workout, i) => {
+    let day = new Date(workout.day).toLocaleDateString(options);
+    dates.push(`Workout ${i + 1} (${day.slice(0, day.length - 5)})`);
   });
   return dates;
 }

@@ -6,6 +6,7 @@ const API = {
     } catch (err) {
       console.log(err)
     }
+
     const json = await res.json();
 
     return json[json.length - 1];
@@ -34,11 +35,21 @@ const API = {
 
     return json;
   },
-
   async getWorkoutsInRange() {
     const res = await fetch(`/api/workouts/range`);
     const json = await res.json();
 
     return json;
   },
+  async deleteAllWorkouts(data = {}) {
+    const res = await fetch("/api/deleteall", {
+      method: "DELETE",
+      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" }
+    });
+
+    const json = await res.json();
+
+    return json;
+  }
 };

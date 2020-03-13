@@ -12,10 +12,6 @@ async function initWorkout() {
       numExercises: lastWorkout.exercises.length,
       ...tallyExercises(lastWorkout.exercises)
     };
-
-    if (new Date(lastWorkout.day).toLocaleDateString() === new Date().toLocaleDateString()) {
-      document.querySelector("#new-btn").classList.add("d-none");
-    }
     renderWorkoutSummary(workoutSummary);
   } else {
     renderNoWorkoutText()
@@ -85,3 +81,10 @@ function renderNoWorkoutText() {
 }
 
 initWorkout();
+
+$("#delete-btn").on("click", function (event) {
+  event.preventDefault();
+  console.log("Deleting..");
+  API.deleteAllWorkouts();
+  window.location.href = "/";
+});
