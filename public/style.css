@@ -415,8 +415,15 @@ form > button {
 
 .buttons .ui.button:nth-child(2) {
   border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
   border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.buttons .ui.button:nth-child(3) {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .workout-type,
