@@ -135,7 +135,7 @@ form::after {
 
 .exercise .ui.card {
   width: 400px;
-  max-width: 600px;
+  /* max-width: 600px; */
 }
 
 .exercise .buttons {
@@ -440,5 +440,12 @@ form > button {
   100% {
     opacity: 0;
     right: -320px;
+  }
+}
+
+@media only screen and (max-width: 469px) {
+  #continue-btn, #new-btn, #delete-btn {
+    font-size: medium;
+    padding: 15px;
   }
 }
